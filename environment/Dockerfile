@@ -3,6 +3,7 @@ FROM bjodah/bjodahimg16:v1.2
 MAINTAINER Björn Dahlgren <bjodah@DELETEMEgmail.com>
 ENV PATH /opt/miniconda3/bin:$PATH
 RUN \
+    apt-get update && apt-get --quiet --assume-yes install sudo && \
     cd /tmp && \
     for FNAME in miniconda3.sh; do \
         wget --no-verbose "http://hera.physchem.kth.se/~repo/bjodahimg16dev/latest/blobs/$FNAME"; \
@@ -13,14 +14,9 @@ RUN \
     conda config --set changeps1 no && \
     conda config --set show_channel_urls True && \
     conda config --add channels conda-forge && \
-    conda install conda-build python=3.5 gmp numpy scipy matplotlib cython cmake gsl numba && \
-    conda clean -t && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN \
+    conda install conda-build python=3.5 gmp numpy scipy matplotlib cython cmake gsl numba pytest ipywidgets && \
     python2 -m pip install git+https://github.com/bjodah/cyipopt.git && \
     python3 -m pip install git+https://github.com/bjodah/cyipopt.git && \
-    conda install pytest && \
-    apt-get update && apt-get --quiet --assume-yes install sudo && \
+    conda clean -t && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
