@@ -13,7 +13,7 @@ RUN \
     conda config --set changeps1 no && \
     conda config --set show_channel_urls True && \
     conda config --add channels conda-forge && \
-    conda install conda-build python=3.5 gmp numpy scipy matplotlib cython cmake gsl && \
+    conda install conda-build python=3.5 gmp numpy scipy matplotlib cython cmake gsl numba && \
     conda clean -t && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
