@@ -18,6 +18,6 @@ RUN \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN \
-    python2 -m pip install git+https://github.com/bjodah/cyipopt.git &&     python3 -m pip install git+https://github.com/bjodah/cyipopt.git &&     conda install pytest
+    python2 -m pip install git+https://github.com/bjodah/cyipopt.git &&     python3 -m pip install git+https://github.com/bjodah/cyipopt.git &&     conda install pytest &&     apt-get update && apt-get --quiet --assume-yes install sudo
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
