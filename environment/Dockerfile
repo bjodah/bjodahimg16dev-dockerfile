@@ -13,11 +13,11 @@ RUN \
     done && \
     bash miniconda3.sh -b -p /opt/miniconda3 && \
     rm miniconda3.sh && \
-    PATH=/opt/miniconda3/bin:/home3/common/jobhoc2/jobhoc2/jobhoc2:/home/bjorn/vc/cmdlineqc/cmdlineqc:/home/bjorn/bin:/home/bjorn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/g09/bsd:/opt/g09/local:/opt/g09/extras:/opt/g09:/opt/gv conda config --set always_yes yes && \
-    PATH=/opt/miniconda3/bin:/home3/common/jobhoc2/jobhoc2/jobhoc2:/home/bjorn/vc/cmdlineqc/cmdlineqc:/home/bjorn/bin:/home/bjorn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/g09/bsd:/opt/g09/local:/opt/g09/extras:/opt/g09:/opt/gv conda config --set changeps1 no && \
-    PATH=/opt/miniconda3/bin:/home3/common/jobhoc2/jobhoc2/jobhoc2:/home/bjorn/vc/cmdlineqc/cmdlineqc:/home/bjorn/bin:/home/bjorn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/g09/bsd:/opt/g09/local:/opt/g09/extras:/opt/g09:/opt/gv conda config --set show_channel_urls True && \
-    PATH=/opt/miniconda3/bin:/home3/common/jobhoc2/jobhoc2/jobhoc2:/home/bjorn/vc/cmdlineqc/cmdlineqc:/home/bjorn/bin:/home/bjorn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/g09/bsd:/opt/g09/local:/opt/g09/extras:/opt/g09:/opt/gv conda config --add channels conda-forge && \
-    PATH=/opt/miniconda3/bin:/home3/common/jobhoc2/jobhoc2/jobhoc2:/home/bjorn/vc/cmdlineqc/cmdlineqc:/home/bjorn/bin:/home/bjorn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/g09/bsd:/opt/g09/local:/opt/g09/extras:/opt/g09:/opt/gv conda install conda-build python=3.5 gmp numpy scipy matplotlib cython cmake gsl numba pytest ipywidgets mpmath xz tk mpfr openssl sundials sympy pip sqlite && \
-    PATH=/opt/miniconda3/bin:/home3/common/jobhoc2/jobhoc2/jobhoc2:/home/bjorn/vc/cmdlineqc/cmdlineqc:/home/bjorn/bin:/home/bjorn/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/g09/bsd:/opt/g09/local:/opt/g09/extras:/opt/g09:/opt/gv conda clean -t && \
+    PATH=/opt/miniconda3/bin:$PATH conda config --set always_yes yes && \
+    PATH=/opt/miniconda3/bin:$PATH conda config --set changeps1 no && \
+    PATH=/opt/miniconda3/bin:$PATH conda config --set show_channel_urls True && \
+    PATH=/opt/miniconda3/bin:$PATH conda config --add channels conda-forge && \
+    PATH=/opt/miniconda3/bin:$PATH conda install conda-build python=3.5 gmp numpy scipy matplotlib cython cmake gsl numba pytest ipywidgets mpmath xz tk mpfr openssl sundials sympy pip sqlite && \
+    PATH=/opt/miniconda3/bin:$PATH conda clean -t && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
