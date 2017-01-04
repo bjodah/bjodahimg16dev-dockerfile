@@ -21,3 +21,7 @@ RUN \
     PATH=/opt/miniconda3/bin:$PATH conda clean -t && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN \
+    cd /opt && curl -LOs http://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2 && \
+    echo "1c837ecd990bb022d07e7aab32b09847  boost_1_63_0.tar.bz2" | md5sum -c -- && \
+    tar xjf boost_1_63_0.tar.bz2 && rm boost_1_63_0.tar.bz2
