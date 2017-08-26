@@ -7,7 +7,7 @@ RUN \
         curl -LOs "http://hera.physchem.kth.se/~repo/bjodahimg16dev/latest/blobs/$FNAME"; \
     done && \
     bash miniconda3.sh -b -p /opt/miniconda3 && \
-    tar xjf boost_*.tar.bz2 -C /opt && cd /opt/boost*/ && ./bootstrap.sh && ./b2 -j 2 --prefix=$PWD && cd - && \
+    tar xjf boost_*.tar.bz2 && cd boost* && ./bootstrap.sh && ./b2 -j 2 --prefix=/opt/$(basename $PWD) install && cd - && \
     rm miniconda3.sh boost_1_65_0.tar.bz2 && \
     wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add - && \
     echo "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-5.0 main" | tee -a /etc/apt/sources.list && \
