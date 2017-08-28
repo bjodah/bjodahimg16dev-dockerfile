@@ -4,7 +4,7 @@ MAINTAINER Björn Dahlgren <bjodah@DELETEMEgmail.com>
 RUN \
     cd /tmp && \
     for FNAME in miniconda3.sh boost_1_65_0.tar.bz2 ; do \
-        curl -LOs "http://hera.physchem.kth.se/~repo/bjodahimg16dev/latest/blobs/$FNAME"; \
+        curl -LOs "http://hera.physchem.kth.se/~repo/bjodahimg16dev/v1.3/blobs/$FNAME"; \
     done && \
     bash miniconda3.sh -b -p /opt/miniconda3 && \
     tar xjf boost_*.tar.bz2 && cd boost* && ./bootstrap.sh && ./b2 -j 2 --prefix=/opt/$(basename $PWD) install && cd - && \
